@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        h1 {
+            color: red;
+            font-size: 5em;
+          }
+          
+        p {
+            color: black;
+          }
+          
+    </style>
+    <head>
+        <title> Learn Javascript </title>
+    </head>
+    
+    <body>
+        <header> Test Page</header>
+        <h1> simple test </h1>
+        <ul id="myList">
+            <li>Item 01</li>
+            <li>Item 02</li>
+            <li>Item 03</li>
+        </ul>
+        <script>
+            var myList = document.getElementById('myList');
+            myList.addEventListener('click', function(e){
+                if( e.target.tagName.toLowerCase() === 'li' ){
+                    console.log(e.target.textContent);
+                }       
+            }, false);
+
+            var newList = document.createElement('li');
+            var textNode = document.createTextNode("Hello World");
+
+            newList.appendChild(textNode);
+            console.log(newList)
+            myList.appendChild(newList);
+
+            var o = { value: 10 };
+
+            function changeValue(obj) {
+                obj = { value: 123 };
+                console.log(obj);
+            }
+
+            changeValue(o);
+            
+        </script>
+    </body>
+</html>

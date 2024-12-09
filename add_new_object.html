@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        
+    </style>
+    <head>
+
+    </head>
+    
+    <body>
+        <ul id="myList">
+        </ul>
+        <button id="show_employee"> Add</button>
+        <script>
+            function Employee(name, id, shift){
+                this.name = name;
+                this.id = id;
+                this.shift = shift;
+
+                this.inf = function(){
+                    return 'Employee Name: ' + this.name + ';' + 'Employee ID: ' + this.id + ';'+ 'Employee Shift: ' + this.shift + ';'
+                } 
+            }
+
+            var jason = new Employee('Jason', '10000001', '8D');
+            var david = new Employee('David', '10000002', '10N');
+            var Team = [jason, david];
+
+            var list = document.getElementById('myList');
+            var show = document.getElementById('show_employee');
+
+            var i = 0;
+
+            show.addEventListener('click', function(){
+                var newList = document.createElement('li');
+                j = i % Team.length
+                var data = document.createTextNode(Team[j].inf());
+                
+                newList.appendChild(data);
+                list.appendChild(newList);
+
+                console.log(i)
+                return i++
+            },false);
+        </script>
+    </body>
+</html>

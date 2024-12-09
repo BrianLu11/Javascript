@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Learn Javascript </title>
+    </head>
+    
+    <body>
+        <header> Test Page</header>
+        <script>
+            var msg = "global."
+
+            function outer() {
+              var msg = "local."
+            
+              function inner() {
+                return msg;
+              }
+            
+              return inner();
+            }
+            
+            var innerFunc = outer();
+            //var result = innerFunc();
+            
+            console.log( innerFunc );
+        </script>
+    </body>
+</html>

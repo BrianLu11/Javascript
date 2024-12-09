@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Learn Javascript </title>
+    </head>
+    
+    <body>
+        <header> Test Page</header>
+        <script>
+            var funcA = function(callback){
+                var i = Math.random() + 1;
+
+                window.setTimeout(function(){
+                    console.log('funcA');
+
+                    if( typeof callback === 'function' ){
+                        callback();
+                    }
+                }, i*1000);
+            };
+
+            var funcB = function(){
+                var i = Math.random() + 1;
+
+                window.setTimeout(function(){
+                    console.log('funcB');
+                }, i*1000);
+            };
+
+            funcA( funcB );
+
+            for( var i = 0; i < 5; i++ ) {
+
+                // 為了凸顯差異，我們將傳入後的參數改名為 x
+                // 當然由於 scope 的不同，要繼續在內部沿用 i 也是可以的。
+                (function(x){
+                  window.setTimeout(function() {
+                    console.log(x);
+                  }, 1000 * x);
+                })(i);
+              
+            }
+            
+        </script>
+    </body>
+</html>
